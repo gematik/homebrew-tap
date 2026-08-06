@@ -1,8 +1,8 @@
 class Zeta < Formula
   desc "Swiss-army-knife Zeta client and tools"
   homepage "https://github.com/gematik/zeta-cli"
-  url "https://github.com/gematik/zeta-cli/releases/download/v0.9.2/zeta-0.9.2.tar.gz"
-  sha256 "efa2963a237f0bfb64b83eb004e62c77bfd329b4f8419177a91bdc2c6843996f"
+  url "https://github.com/gematik/zeta-cli/releases/download/v0.9.3/zeta-0.9.3.tar.gz"
+  sha256 "0f04137d1547bfb48f8904fc1f6687ec5b8ae8c532ca6433351a64d048a487f9"
   license "Apache-2.0"
 
   depends_on "openjdk@21"
