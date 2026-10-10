@@ -2,20 +2,20 @@
 class Ti < Formula
   desc "Command-line tool for the gematik Telematikinfrastruktur (TI)"
   homepage "https://github.com/gematik/zero-lab/tree/main/rust/ti-cli"
-  version "0.2.0"
+  version "0.3.0"
   license "Apache-2.0"
 
   # Released for Apple silicon Macs and x86_64 Linux only.
   on_macos do
     depends_on arch: :arm64
-    url "https://github.com/gematik/zero-lab/releases/download/rust/ti-cli/v0.2.0/ti-0.2.0-aarch64-apple-darwin"
-    sha256 "dd2d77e702aa093388b717d2614ceb4e8b9bfa35269efd7cc2dac5e201165882"
+    url "https://github.com/gematik/zero-lab/releases/download/rust/ti-cli/v0.3.0/ti-0.3.0-aarch64-apple-darwin"
+    sha256 "dd490ab73ddcb00ecea0ba132cf55297f559bd91fccf3166ae82574afc8007ab"
   end
 
   on_linux do
     depends_on arch: :x86_64
-    url "https://github.com/gematik/zero-lab/releases/download/rust/ti-cli/v0.2.0/ti-0.2.0-x86_64-unknown-linux-musl"
-    sha256 "de78f59a435d37f472c5fcc05f19c63e8dd4f6ac064eac8904a9a6e3ea199d69"
+    url "https://github.com/gematik/zero-lab/releases/download/rust/ti-cli/v0.3.0/ti-0.3.0-x86_64-unknown-linux-musl"
+    sha256 "eed260ecdf5b2a8c79613e2caac744ccf29ebd6abc8a1f7935b545445cd74b2c"
   end
 
   def install
