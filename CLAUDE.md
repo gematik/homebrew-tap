@@ -28,10 +28,9 @@ commits `<name> <version>`, and pushes straight to `main`. As a result:
   ported upstream.
 - `sha256` always comes from the release asset (or its `SHA256SUMS`). Never compute it
   from a local build.
-- Both producers currently default to the `spilikin` owner (`TAP_OWNER` in
-  `zero-lab/rust/Justfile`, the `owner` argument in `zeta-cli`). To move a tool to this tap,
-  publish with owner `gematik` and update the install line in the producer's release
-  notes and README.
+- Publish with owner `gematik`. `zero-lab/rust/Justfile` still defaults `TAP_OWNER` to
+  `spilikin`, and `zeta-cli` takes the owner as an argument. Publishing to `spilikin`
+  makes the two taps diverge.
 - Keep the `<name> <version>` commit subject so publisher commits and manual commits
   read the same.
 
@@ -56,10 +55,21 @@ brew uninstall ti && brew untap gematik/tap
 `brew tap` clones from a path, so local edits stop being visible after tapping. The
 symlink keeps the working tree live.
 
-Formulas are binary-only and per-platform (see `ti.rb`: `on_macos` arm64 /
-`on_linux` x86_64 inside `on_*` blocks, `bin.install` with an explicit rename and a
-`chmod`, because release assets download without the executable bit). Every formula has a
-`test do` block that checks `version` output against `#{version}`.
+The two formulas are packaged differently:
+
+- `ti` installs bare per-platform binaries (arm64 macOS, x86_64 Linux). It uses
+  `bin.install` with a rename and a `chmod`, because release assets download without
+  the executable bit. It currently fails `brew style` (`FormulaAudit/ComponentsOrder`:
+  `url`/`sha256` inside `on_macos`/`on_linux`). Fix that in the zero-lab template, using
+  `on_arm`/`on_intel` or a top-level `url` per platform, not here.
+- `zeta` installs a JVM distribution tarball into `libexec`, depends on `openjdk@21`, and
+  wraps `bin/zeta` with `write_env_script`.
+
+Each formula has a `test do` block that runs its `version` command.
+
+History before this tap existed (`ti` 0.1.0–0.5.0, `zeta` 0.5.1–0.15.0) was imported
+from `spilikin/homebrew-tap` with a merge commit. Some early `zeta` versions in that
+history point at release assets on `spilikin/homebrew-tap`.
 
 ## gematik OSPO rules
 
