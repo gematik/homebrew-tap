@@ -59,9 +59,12 @@ The two formulas are packaged differently:
 
 - `ti` installs bare per-platform binaries (arm64 macOS, x86_64 Linux). It uses
   `bin.install` with a rename and a `chmod`, because release assets download without
-  the executable bit. It currently fails `brew style` (`FormulaAudit/ComponentsOrder`:
-  `url`/`sha256` inside `on_macos`/`on_linux`). Fix that in the zero-lab template, using
-  `on_arm`/`on_intel` or a top-level `url` per platform, not here.
+  the executable bit. Homebrew only accepts `url`/`sha256` nested as `on_<os>` →
+  `on_<arch>`; it rejects them directly under `on_macos` or a top-level `on_arm`. The
+  unsupported architecture of each OS repeats that OS's binary only so the formula still
+  loads there and `depends_on arch` refuses it; without a `url` the formula fails to load
+  ("requires at least a URL"). There is no `version` line: `brew audit --strict` flags it
+  as redundant with the URL.
 - `zeta` installs a JVM distribution tarball into `libexec`, depends on `openjdk@21`, and
   wraps `bin/zeta` with `write_env_script`.
 
