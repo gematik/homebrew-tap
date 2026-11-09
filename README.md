@@ -7,10 +7,10 @@ command-line tools in [`Formula/`](./Formula) and casks for GUI applications in
 [`Casks/`](./Casks).
 
 The tap only carries the package definitions. Every formula and cask downloads its
-binaries from the GitHub release of the application's own repository and checks them
-against the SHA-256 recorded here. Each application's release process publishes its
-formula into this tap, so the issues and release notes for an application are in that
-application's repository.
+binaries from a GitHub release of the application's own repository, or of this one,
+and checks them against the SHA-256 recorded here. Each application's release process
+publishes its formula into this tap, so the issues and release notes for an application
+are in that application's repository.
 
 ### Release Notes
 

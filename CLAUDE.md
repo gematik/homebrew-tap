@@ -8,7 +8,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 `Formula/` and casks for GUI apps in `Casks/`. Users run `brew tap gematik/tap`, then
 `brew install gematik/tap/<name>`. The tap only carries Ruby definitions. Binaries and
 source tarballs stay on the GitHub releases of the app's own repository, and each
-definition points at those with a `url` and `sha256`.
+definition points at those with a `url` and `sha256`. Apps without a public
+repository attach their binaries to releases of this repo instead, tagged
+`<name>-v<version>`. Formulas download from those releases, so never delete them.
 
 ## How formulas get here (read before editing one)
 
@@ -19,6 +21,7 @@ not maintained by hand in this repo:
 |---|---|---|
 | `ti` | `gematik/zero-lab` → `rust/ti-cli/Formula/ti.rb` (template with `@VERSION@`, `@URL_<target>@`, `@SHA256_<target>@`) | `just publish-brew <owner> <version>` in `zero-lab/rust` |
 | `zeta` | `gematik/zeta-cli` → `Formula/zeta.rb` (`url`/`sha256` lines rewritten by sed) | `just publish-brew <owner>` in `zeta-cli` |
+| `kartos` | kartos (internal GitLab) → `packaging/brew/kartos.rb` (template like `ti`'s; binaries on this repo's `kartos-v*` releases) | `just dist && just publish-brew` in kartos |
 
 Each publisher shallow-clones `<owner>/homebrew-tap`, overwrites `Formula/<name>.rb`,
 commits `<name> <version>`, and pushes straight to `main`. As a result:
