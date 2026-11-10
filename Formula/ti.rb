@@ -11,24 +11,24 @@ class Ti < Formula
   on_macos do
     depends_on arch: :arm64
     on_arm do
-      url "https://github.com/gematik/zero-lab/releases/download/rust/ti-cli/v0.6.0/ti-0.6.0-aarch64-apple-darwin"
-      sha256 "257b0421cbafcd2309f7b79b4f961072c487b43749be3665652b515a3ed4fcee"
+      url "https://github.com/gematik/zero-lab/releases/download/rust/ti-cli/v0.6.1/ti-0.6.1-aarch64-apple-darwin"
+      sha256 "76072642d48f71cf26f0390419b5c8f9066b8b3ffeb60196b70550dc7d5cf4c2"
     end
     on_intel do
-      url "https://github.com/gematik/zero-lab/releases/download/rust/ti-cli/v0.6.0/ti-0.6.0-aarch64-apple-darwin"
-      sha256 "257b0421cbafcd2309f7b79b4f961072c487b43749be3665652b515a3ed4fcee"
+      url "https://github.com/gematik/zero-lab/releases/download/rust/ti-cli/v0.6.1/ti-0.6.1-aarch64-apple-darwin"
+      sha256 "76072642d48f71cf26f0390419b5c8f9066b8b3ffeb60196b70550dc7d5cf4c2"
     end
   end
 
   on_linux do
     depends_on arch: :x86_64
     on_intel do
-      url "https://github.com/gematik/zero-lab/releases/download/rust/ti-cli/v0.6.0/ti-0.6.0-x86_64-unknown-linux-musl"
-      sha256 "594d673ea21ab13b33d40faed2f5334a2cd922307df9f6ebd438241b4b15d93e"
+      url "https://github.com/gematik/zero-lab/releases/download/rust/ti-cli/v0.6.1/ti-0.6.1-x86_64-unknown-linux-musl"
+      sha256 "3676354064e69f830736c17b42f96fb9cc701a07027ff06f30dafacf8995f0c1"
     end
     on_arm do
-      url "https://github.com/gematik/zero-lab/releases/download/rust/ti-cli/v0.6.0/ti-0.6.0-x86_64-unknown-linux-musl"
-      sha256 "594d673ea21ab13b33d40faed2f5334a2cd922307df9f6ebd438241b4b15d93e"
+      url "https://github.com/gematik/zero-lab/releases/download/rust/ti-cli/v0.6.1/ti-0.6.1-x86_64-unknown-linux-musl"
+      sha256 "3676354064e69f830736c17b42f96fb9cc701a07027ff06f30dafacf8995f0c1"
     end
   end
 
